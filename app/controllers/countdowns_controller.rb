@@ -65,6 +65,6 @@ class CountdownsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def countdown_params
-      params.require(:countdown).permit(:name, :description, :target)
+      params.require(:countdown).permit(:name, :target)
     end
 end

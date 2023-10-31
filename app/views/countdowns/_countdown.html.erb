@@ -5,13 +5,12 @@
   </p>
 
   <p>
-    <strong>Description:</strong>
-    <%= countdown.description %>
-  </p>
-
-  <p>
-    <strong>Target:</strong>
-    <%= countdown.target %>
+    <strong>End of Term:</strong>
+    <% if countdown.target.present? %>
+      <%= countdown.target.strftime("%A %d %B %Y at %H:%M") %>
+    <% else %>
+      No end date specified
+    <% end %>
   </p>
 
   <% seconds_until_target_time = countdown.target.to_i - Time.now.to_i %>
