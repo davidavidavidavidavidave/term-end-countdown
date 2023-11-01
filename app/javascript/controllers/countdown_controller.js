@@ -40,17 +40,22 @@ export default class extends Controller {
     const minutes = Math.floor((secondsRemaining % secondsPerHour) / secondsPerMinute);
     const seconds = Math.floor(secondsRemaining % secondsPerMinute);
 
-    this.countdownTarget.innerHTML = `
+    const formattedHours = hours < 10 ? `0${hours}` : hours;
+  const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+  const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+
+  this.countdownTarget.innerHTML = `
     <div class="countdown">
       <ul>
-        <li class="days">${totalDays} days</li>
-        <li class="hours">${hours} hours</li>
-        <li class="minutes">${minutes} minutes</li>
-        <li class="seconds">${seconds} seconds</li>
+        <li><span class="days">${totalDays}</span>days</li>
+        <li><span class="hours">${formattedHours}</span>hours</li>
+        <li class="seperator">:</li>
+        <li><span class="minutes">${formattedMinutes}</span>minutes</li>
+        <li class="seperator">:</li>
+        <li><span class="seconds">${formattedSeconds}</span>seconds</li>
       </ul>
     </div>
-    <p>That's just ${weekdays} school getups to go!</p>
+    <h1>That's just ${weekdays} school getups to go!</h1>
   `;
-  }
-
+}
 }
