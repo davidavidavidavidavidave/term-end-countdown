@@ -1,14 +1,31 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Countdowns</h1>
+<div class="container">
+  <h1>Countdowns</h1>
 
-<div id="countdowns">
-  <% @countdowns.each do |countdown| %>
-    <%= render countdown %>
-    <p>
-      <%= link_to "Show this countdown", countdown %>
-    </p>
+  <br>
+  <% @countdowns.each_with_index do |countdown, index| %>
+    <div id="countdowns">
+      <div class="card-trip">
+        <div class="card-trip-infos">
+          <div>
+            <h2>Countdown <%= index + 1 %>:&nbsp; <strong><%= countdown.name %></strong></h2>
+            <h2 class="card-trip-pricing">
+
+            </h2>
+          </div>
+        <div class="countdown-container small-countdown">
+          <%= link_to countdown do %>
+    <%= render partial: "countdowns/countdown_mini", locals: { countdown: countdown } %>
   <% end %>
 </div>
-
-<%= link_to "New countdown", new_countdown_path %>
+</div>
+ </div>
+    </div>
+    <br>
+  <% end %>
+   <br>
+   <div>
+    <%= link_to "New countdown", new_countdown_path, class: "new-style" %>
+  </div>
+</div>

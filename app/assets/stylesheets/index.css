@@ -1,0 +1,98 @@
+/* #countdown_3 {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+} */
+
+#countdowns {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  border: 1px solid #ccc;
+}
+
+.card-trip p {
+  font-size: 18px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+/* .button-style {
+  background-color: grey;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+.new-style {
+  text-decoration: none;
+  background-color: grey;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  transition: color 0.3s;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.new-style:hover {
+  color: rgb(167, 167, 167)
+}
+
+.small-countdown {
+  font-size: 3px; /* Adjust to your preferred font size */
+  padding: 4px; /* Adjust to your preferred padding */
+  width: 50%; /* Adjust to your preferred width */
+  margin-right: 0 auto;
+  border-radius: 2px;
+  text-align: right;
+}
+.small-countdown h1 {
+  font-size: 0px;
+}
+
+.small-countdown ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  list-style-type: none;
+  font-size: 0.6rem;
+  text-align: center;
+}
+.small-countdown li span {
+  display: block;
+  font-size: 0.6rem;
+}
+
+.small-countdown li {
+  font-size: 0.6rem;
+  margin: 5px 0;
+}
+
+.small-countdown li.seperator {
+  margin: 0 10px;
+  font-size: 0.6rem;
+  line-height: 1;
+}

@@ -24,7 +24,11 @@ export default class extends Controller {
 
     if (secondsRemaining <= 0) {
       clearInterval(this.countdown);
-      this.countdownTarget.innerHTML = "Congratulations on reaching the end of Term! 😊";
+      const endMessage = this.countdownTarget.dataset.countdownName === "end of term"
+        ? "Congratulations on reaching the end of Term! 😊"
+        : "Time's up! 😊";
+
+      this.countdownTarget.innerHTML = endMessage;
       return;
     }
     const secondsPerWeek = 604800;
@@ -55,7 +59,6 @@ export default class extends Controller {
         <li><span class="seconds">${formattedSeconds}</span>seconds</li>
       </ul>
     </div>
-    <h1>That's just ${weekdays} school getups to go!</h1>
-  `;
-}
+    <h1>That's just ${weekdays} school getups to go!</h1>`;
+  }
 }

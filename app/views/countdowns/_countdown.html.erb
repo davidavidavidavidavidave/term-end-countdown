@@ -1,21 +1,13 @@
-<div id="<%= dom_id countdown %>">
-
-  <p>
-    <strong>Name:</strong>
-    <%= countdown.name %>
-  </p>
-
-  <p>
-    <strong>End of Term:</strong>
+<div id="<%= dom_id countdown %>" class="<%= countdown.name.downcase == 'end of term' ? 'countdown-mini' : '' %>">
+  <h1><strong>Countdown</strong></h1>
+  <h2>End of Term:
     <% if countdown.target.present? %>
       <%= countdown.target.strftime("%A %d %B %Y at %H:%M") %>
     <% else %>
       No end date specified
     <% end %>
-  </p>
-
+  </h2>
   <% seconds_until_target_time = countdown.target.to_i - Time.now.to_i %>
-
   <%= content_tag(:h1, "", data: {
     controller: "countdown",
     countdown_target: "countdown",
