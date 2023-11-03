@@ -84,6 +84,7 @@ ul li {
 .small-countdown li span {
   display: block;
   font-size: 0.6rem;
+  text-decoration: none;
 }
 
 .small-countdown li {
@@ -95,4 +96,8 @@ ul li {
   margin: 0 10px;
   font-size: 0.6rem;
   line-height: 1;
+}
+
+.small-countdown li:first-of-type {
+  margin-right: 3rem;
 }

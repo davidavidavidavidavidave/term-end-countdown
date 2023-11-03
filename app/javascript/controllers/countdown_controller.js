@@ -17,18 +17,13 @@ export default class extends Controller {
 
   }
 
-
   countdown() {
     const now = new Date();
     const secondsRemaining = (this.endTime - now) / 1000;
 
     if (secondsRemaining <= 0) {
       clearInterval(this.countdown);
-      const endMessage = this.countdownTarget.dataset.countdownName === "end of term"
-        ? "Congratulations on reaching the end of Term! 😊"
-        : "Time's up! 😊";
-
-      this.countdownTarget.innerHTML = endMessage;
+      this.countdownTarget.innerHTML = "Congratulations on reaching the end of Term! 😊";
       return;
     }
     const secondsPerWeek = 604800;
