@@ -10,15 +10,11 @@
     <% end %>
 </h2>
   <% seconds_until_target_time = countdown.target.to_i - Time.now.to_i %>
-  <% if countdown.name == "end of term" %>:
-      <%= content_tag(:h1, "", data: {
-    controller: "countdown",
-    countdown_target: "countdown",
-    seconds_until_end_value: seconds_until_target_time
-  }) %>
-<% else %>
-<% end %>
-
-
-
+  <% countdown_name_value =  countdown.name %>
+    <%= content_tag(:h1, "", data: {
+      controller: "countdown",
+      countdown_target: "countdown",
+      countdown_name: countdown_name_value,
+      seconds_until_end_value: seconds_until_target_time
+    }) %>
 </div>

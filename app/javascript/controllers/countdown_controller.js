@@ -1,13 +1,15 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="countdown"
+
 export default class extends Controller {
   static targets = ["countdown"];
 
   connect() {
-    console.log("connected")
-
     this.secondsUntilEnd = this.countdownTarget.dataset.secondsUntilEndValue;
+
+    this.isNameEndOfTerm =
+      this.countdownTarget.dataset.countdownName === "end of term";
 
     const now = new Date().getTime();
     this.endTime = new Date(now + this.secondsUntilEnd * 1000);
@@ -21,7 +23,13 @@ export default class extends Controller {
 
     if (secondsRemaining <= 0) {
       clearInterval(this.countdown);
-      this.countdownTarget.innerHTML = "Congratulations on reaching the end of Term! 😊";
+
+      if (this.isNameEndOfTerm) {
+        this.countdownTarget.innerHTML =
+          "Congratulations on reaching the end of Term! 😊";
+        return;
+      }
+      this.countdownTarget.innerHTML = "Time's up, cunts!";
       return;
     }
     const secondsPerWeek = 604800;
@@ -33,15 +41,23 @@ export default class extends Controller {
     const weeks = Math.floor(totalDays / 7);
     const weekdays = totalDays - weeks * 2;
 
-    const hours = Math.floor((secondsRemaining % secondsPerDay) / secondsPerHour);
-    const minutes = Math.floor((secondsRemaining % secondsPerHour) / secondsPerMinute);
+    const hours = Math.floor(
+      (secondsRemaining % secondsPerDay) / secondsPerHour
+    );
+    const minutes = Math.floor(
+      (secondsRemaining % secondsPerHour) / secondsPerMinute
+    );
     const seconds = Math.floor(secondsRemaining % secondsPerMinute);
 
     const formattedHours = hours < 10 ? `0${hours}` : hours;
-  const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
-  const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
-  this.countdownTarget.innerHTML = `
+    const message = this.isNameEndOfTerm
+      ? `<h1>That's just ${weekdays} school getups to go!</h1>`
+      : `<h1>Keep going, yer cunts!</h1>`;
+
+    this.countdownTarget.innerHTML = `
     <div class="countdown">
       <ul>
         <li><span class="days">${totalDays}</span>days</li>
@@ -52,6 +68,7 @@ export default class extends Controller {
         <li><span class="seconds">${formattedSeconds}</span>seconds</li>
       </ul>
     </div>
-    <h1>That's just ${weekdays} school getups to go!</h1>`;
+    ${message}
+    `;
   }
 }

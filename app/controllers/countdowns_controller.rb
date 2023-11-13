@@ -9,7 +9,6 @@ class CountdownsController < ApplicationController
   # GET /countdowns/1 or /countdowns/1.json
   def show
     @countdown_name = @countdown.name
-    # @is_end_of_term = @countdown_name == "end of term"
   end
 
   # GET /countdowns/new
