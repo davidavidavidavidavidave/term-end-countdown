@@ -127,3 +127,7 @@ p {
 .link-style:hover {
   color: rgb(167, 167, 167)
 }
+
+.flex-fill {
+  flex: 1 1 auto !important;
+}

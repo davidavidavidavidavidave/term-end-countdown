@@ -1,10 +1,12 @@
-<h1>Editing countdown</h1>
+<div class="container">
+  <h1>Edit your countdown</h1>
 
-<%= render "form", countdown: @countdown %>
+  <%= render "form", countdown: @countdown %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this countdown", @countdown %> |
-  <%= link_to "Back to countdowns", countdowns_path %>
+  <div>
+    <%= link_to "Show this countdown", @countdown, class: "new-style" %> 
+    <%= link_to "Back to countdowns", countdowns_path, class: "new-style" %>
+  </div>
 </div>

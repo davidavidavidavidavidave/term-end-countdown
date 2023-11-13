@@ -2,6 +2,9 @@
 
 <div class="container">
   <h1>Countdowns</h1>
+  <div>
+    <%= link_to "New countdown", new_countdown_path, class: "new-style" %>
+  </div>
   <br>
   <% @countdowns.each_with_index do |countdown, index| %>
     <div id="countdowns">
@@ -16,15 +19,11 @@
         <div class="countdown-container small-countdown">
           <%= link_to countdown do %>
     <%= render partial: "countdowns/countdown_mini", locals: { countdown: countdown } %>
-  <% end %> 
+  <% end %>
 </div>
 </div>
  </div>
     </div>
     <br>
   <% end %>
-   <br>
-   <div>
-    <%= link_to "New countdown", new_countdown_path, class: "new-style" %>
-  </div>
 </div>
