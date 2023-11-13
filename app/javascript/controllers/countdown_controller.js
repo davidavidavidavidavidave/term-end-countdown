@@ -29,7 +29,7 @@ export default class extends Controller {
           "Congratulations on reaching the end of Term! 😊";
         return;
       }
-      this.countdownTarget.innerHTML = "Time's up, cunts!";
+      this.countdownTarget.innerHTML = "Time's up!";
       return;
     }
     const secondsPerWeek = 604800;
@@ -55,7 +55,7 @@ export default class extends Controller {
 
     const message = this.isNameEndOfTerm
       ? `<h1>That's just ${weekdays} school getups to go!</h1>`
-      : `<h1>Keep going, yer cunts!</h1>`;
+      : `<h1>Keep going!</h1>`;
 
     this.countdownTarget.innerHTML = `
     <div class="countdown">
