@@ -9,12 +9,10 @@ export default class extends Controller {
 
     this.secondsUntilEnd = this.countdownTarget.dataset.secondsUntilEndValue;
 
-
     const now = new Date().getTime();
     this.endTime = new Date(now + this.secondsUntilEnd * 1000);
 
     this.countdown = setInterval(this.countdown.bind(this), 200);
-
   }
 
   countdown() {
